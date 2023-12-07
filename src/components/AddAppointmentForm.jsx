@@ -15,6 +15,7 @@ function AddAppointmentForm({ addSchedule, closeModal }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         addSchedule(userData)
+        closeModal()
     };
 
     const handleChange = (event) => {

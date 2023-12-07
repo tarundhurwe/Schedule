@@ -45,7 +45,7 @@ function App() {
       <SideNav />
       <Router>
         <Routes>
-          <Route exact path="/" element={<Dashboard addSchedule={addSchedule} />}>
+          <Route exact path="/" element={<Dashboard addSchedule={addSchedule} values={values} onDelete={onDelete} />}>
           </Route>
           <Route exact path="/calendar" element={<Calendar />}>
           </Route>

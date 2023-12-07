@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AddAppointmentForm from './AddAppointmentForm'
 import Appointment from './Appointment'
 
-function Dashboard({ addSchedule }) {
+function Dashboard({ addSchedule, values, onDelete }) {
     const [isOpenModal, setOpenModal] = useState(false)
 
     const openModal = () => {
@@ -31,12 +31,9 @@ function Dashboard({ addSchedule }) {
                         flexWrap: "wrap",
                         justifyContent: "space-evenly"
                     }}>
-                        <Appointment />
-                        <Appointment />
-                        <Appointment />
-                        <Appointment />
-                        <Appointment />
-                        <Appointment />
+                        {values.length === 0 ? "" : values.map((value) => {
+                            return (<Appointment value={value} key={value.sno} onDelete={onDelete} />)
+                        })}
                     </div>
                 </div>
             </div>
