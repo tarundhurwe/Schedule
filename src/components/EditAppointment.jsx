@@ -14,8 +14,8 @@ function EditAppointment({ closeEditModal, value, onDelete, addSchedule }) {
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
+    const { name, data } = event.target;
+    setUserData((prevUserData) => ({ ...prevUserData, [name]: data }));
   };
 
   const submit = (event) => {
