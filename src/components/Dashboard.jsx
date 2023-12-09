@@ -32,7 +32,7 @@ function Dashboard({ addSchedule, values, onDelete }) {
                         justifyContent: "space-evenly"
                     }}>
                         {values.length === 0 ? "" : values.map((value) => {
-                            return (<Appointment value={value} key={value.sno} onDelete={onDelete} />)
+                            return (<Appointment value={value} key={value.sno} onDelete={onDelete} addSchedule={addSchedule} />)
                         })}
                     </div>
                 </div>
