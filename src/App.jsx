@@ -13,26 +13,42 @@ function App() {
     initAppointment = JSON.parse(localStorage.getItem("schedule"));
   }
 
+  const onEdit = (updatedAppointment) => {
+    let sno = oldAppointment.sno;
+    updatedAppointment.sno = sno;
+    const newValues = [...values, updatedAppointment]
+    setValues(newValues)
+  }
+
   const onDelete = (appointment) => {
+<<<<<<< HEAD
     setValues(
       values.filter((e) => {
         return e !== appointment;
       })
     );
+=======
+    setValues(values.filter((e) => {
+      console.log("deleting")
+      return e !== appointment
+    }));
+>>>>>>> b64999ad2358c07679382d770bc57f3150080002
     localStorage.setItem("schedule", JSON.stringify(appointment));
   };
 
   const addSchedule = (data) => {
-    let sno;
-    if (values.length === 0) {
-      sno = 1;
-    } else {
-      sno = values[values.length - 1].sno + 1;
+    const snoKey = data.hasOwnProperty('sno');
+    if (!snoKey) {
+      let sno;
+      if (values.length === 0) {
+        sno = 1;
+      } else {
+        sno = values[values.length - 1].sno + 1;
+      }
+      data.sno = sno;
     }
-    data.sno = sno;
     const newValues = [...values, data];
     setValues(newValues);
-    console.log(newValues);
   };
 
   const [values, setValues] = useState(initAppointment);

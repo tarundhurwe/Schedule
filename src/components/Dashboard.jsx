@@ -42,6 +42,7 @@ function Dashboard({ addSchedule, values, onDelete }) {
         </strong>
       </button>
 
+<<<<<<< HEAD
       {isOpenModal ? (
         <AddAppointmentForm addSchedule={addSchedule} closeModal={closeModal} />
       ) : (
@@ -73,6 +74,24 @@ function Dashboard({ addSchedule, values, onDelete }) {
       </div>
     </>
   );
+=======
+            {isOpenModal ? <AddAppointmentForm addSchedule={addSchedule} closeModal={closeModal} /> : ""}
+            <div className="p-4 sm:ml-64">
+                <div className="p-4 rounded-lg dark:border-gray-700 mt-14">
+                    <div className="flex flex-wrap mb-4 justify-center" style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        justifyContent: "space-evenly"
+                    }}>
+                        {values.length === 0 ? "" : values.map((value) => {
+                            return (<Appointment value={value} key={value.sno} onDelete={onDelete} addSchedule={addSchedule} />)
+                        })}
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+>>>>>>> b64999ad2358c07679382d770bc57f3150080002
 }
 
 export default Dashboard;
