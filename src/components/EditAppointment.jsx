@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 
 function EditAppointment({ closeEditModal, value, onDelete, addSchedule }) {
-  const [sno, setSno] = useState(value.setSno);
   const [userData, setUserData] = useState({
     email: value.email,
     firstName: value.firstName,
@@ -14,16 +13,20 @@ function EditAppointment({ closeEditModal, value, onDelete, addSchedule }) {
   });
 
   const handleChange = (event) => {
-    const { name, data } = event.target;
-    setUserData((prevUserData) => ({ ...prevUserData, [name]: data }));
+    const { name, value } = event.target;
+    setUserData((prevUserData) => ({ ...prevUserData, [name]: value }));
   };
 
   const submit = (event) => {
     event.preventDefault();
-    userData.sno = sno;
-    addSchedule(userData);
+    const updatedAppointment = {
+      ...value,
+      ...userData,
+    };
+
+    addSchedule(updatedAppointment);
     closeEditModal();
-    console.log(userData);
+    console.log(updatedAppointment);
   };
   return (
     <>
