@@ -16,28 +16,22 @@ function App() {
   const onEdit = (updatedAppointment) => {
     let sno = oldAppointment.sno;
     updatedAppointment.sno = sno;
-    const newValues = [...values, updatedAppointment]
-    setValues(newValues)
-  }
+    const newValues = [...values, updatedAppointment];
+    setValues(newValues);
+  };
 
   const onDelete = (appointment) => {
-<<<<<<< HEAD
     setValues(
       values.filter((e) => {
+        console.log("deleting");
         return e !== appointment;
       })
     );
-=======
-    setValues(values.filter((e) => {
-      console.log("deleting")
-      return e !== appointment
-    }));
->>>>>>> b64999ad2358c07679382d770bc57f3150080002
     localStorage.setItem("schedule", JSON.stringify(appointment));
   };
 
   const addSchedule = (data) => {
-    const snoKey = data.hasOwnProperty('sno');
+    const snoKey = data.hasOwnProperty("sno");
     if (!snoKey) {
       let sno;
       if (values.length === 0) {
